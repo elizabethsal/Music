@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Disk {
 
@@ -20,9 +21,14 @@ public class Disk {
         return name;
     }
 
-    public int getDuration(){
+    public ArrayList<Composition> getSorted() {
+        Collections.sort(compositions);
+        return compositions;
+    }
+
+    public int getDuration() {
         int duration = 0;
-        for(Composition composition: compositions){
+        for (Composition composition : compositions) {
             duration += composition.getDuration();
         }
         return duration;

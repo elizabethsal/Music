@@ -1,6 +1,6 @@
 package com.company;
 
-public class Composition {
+public class Composition implements Comparable {
 
     private String style;
     private String name;
@@ -32,5 +32,21 @@ public class Composition {
                 ", name='" + name + '\'' +
                 ", duration=" + duration +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        //   int indexOfPop = Main.MUSICAL_GENRE.indexOf("Pop");
+        if (!(o instanceof Composition)) return 0;
+        Composition composition = (Composition) o;
+        int indexCurrent = Main.MUSICAL_GENRE.indexOf(style);
+        int indexNew = Main.MUSICAL_GENRE.indexOf(composition.style);
+        if (indexCurrent < indexNew) {
+            return -1;
+        }
+        if (indexCurrent > indexNew) {
+            return 1;
+        }
+        return 0;
     }
 }
